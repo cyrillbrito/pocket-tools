@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Vamo la !
+      <ion-button *ngIf="alertInterval" (click)="stopAlert()">STOP!</ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list style="padding-bottom: 200px;">
+
+    <ion-item>
+
+      <h1>{{ chain?.name }}</h1>
+
+      <div style="margin: 20px;">
+        <div>Elapsed</div>
+        <div>{{ timer.mins }} : {{ timer.secs }} </div>
+      </div>
+
+      <div style="margin: 20px;">
+        <div>Missing</div>
+        <div>{{ timer2.mins }} : {{ timer2.secs }} </div>
+      </div>
+
+    </ion-item>
+
+    <ion-card *ngFor="let habitAlert of habits" [disabled]="habitAlert.isDone" color="danger">
+      <ion-item>
+        <ion-icon [name]="habitAlert.habit.icon" slot="start"></ion-icon>
+        <ion-label>{{ habitAlert.habit.name }}</ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="habitAlert.timerUp">
+        Timer up: {{ habitAlert.timerUp.mins }} : {{ habitAlert.timerUp.secs }}
+      </ion-item>
+
+      <ion-item *ngIf="habitAlert.timerDown">
+        Timer down: {{ habitAlert.timerDown.mins }} : {{ habitAlert.timerDown.secs }}
+      </ion-item>
+
+      <ion-item *ngIf="habitAlert.timerUp">
+        <ion-button (click)="next()">NEXT</ion-button>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-item>
+      <ion-button (click)="home()">Home</ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

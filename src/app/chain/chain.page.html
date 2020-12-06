@@ -1,0 +1,79 @@
+<ng-container *ngIf="!iconSelect">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        {{ isCreate ? 'Create chain' : 'Edit Chain'}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <ion-list>
+
+      <ion-list-header>Settings</ion-list-header>
+
+      <ion-item lines="inset">
+        <ion-label>Name</ion-label>
+        <ion-input slot="end" [(ngModel)]="chain.name"></ion-input>
+      </ion-item>
+
+      <ion-item button (click)="iconSelect = true">
+        <ion-label>Icon</ion-label>
+        {{ chain.icon }}
+      </ion-item>
+
+      <ion-item lines="inset">
+        <ion-label>Trigger</ion-label>
+        <ion-select placeholder="Select One" [(ngModel)]="chain.trigger">
+          <ion-select-option value="alarm">Alarm</ion-select-option>
+          <ion-select-option value="notification">Notification</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="inset">
+        <ion-label>Trigger Time</ion-label>
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="chain.time"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list>
+
+      <ion-list-header>Habits</ion-list-header>
+
+      <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
+        <ion-item button *ngFor="let habit of chain.habits" (click)="editHabit(habit)">
+          <ion-label>{{ habit.name }}</ion-label>
+          <ion-reorder></ion-reorder>
+          <ion-icon name="trash-outline" (click)="trashHabit(habit, $event)"></ion-icon>
+        </ion-item>
+      </ion-reorder-group>
+
+    </ion-list>
+
+    <ion-list>
+
+      <ion-list-header>Actions</ion-list-header>
+
+      <ion-item>
+        <ion-button color="primary" (click)="createHabit()">Create habit</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="success" (click)="save()">Save</ion-button>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-button color="success" (click)="trigger()">Trigger</ion-button>
+      </ion-item>
+
+
+    </ion-list>
+
+  </ion-content>
+</ng-container>
+
+<app-icon-select *ngIf="iconSelect" (selected)="chain.icon = $event; iconSelect = false;">
+</app-icon-select>

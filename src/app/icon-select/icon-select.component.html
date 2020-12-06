@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select an icon</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [ngModel]="''" (ngModelChange)="search($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-virtual-scroll [items]="icons">
+    <ion-item button *virtualItem="let icon" (click)="selected.emit(icon.name)">
+      <ion-icon [name]="icon.name" slot="start"></ion-icon>
+      <ion-label>{{ icon.name }}</ion-label>
+    </ion-item>
+  </ion-virtual-scroll>
+</ion-content>

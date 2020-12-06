@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Chains
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item lines="full">
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>Toggle Dark Theme</ion-label>
+      <ion-toggle (click)="switchTheme()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item button *ngFor="let chain of chains" (click)="edit(chain)">
+      <ion-label>{{ chain.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button color="primary" (click)="create()">Create</ion-button>
+  <ion-button color="danger" (click)="deleteAll()" size="small">Delete all</ion-button>
+
+</ion-content>

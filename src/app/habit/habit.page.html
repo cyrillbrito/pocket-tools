@@ -1,0 +1,40 @@
+<ng-container *ngIf="!iconSelect">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Habit
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <ion-list *ngIf="habit">
+
+
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input [(ngModel)]="habit.name"></ion-input>
+      </ion-item>
+
+      <ion-item button (click)="iconSelect = true">
+        <ion-label>Icon</ion-label>
+        {{ habit.icon }}
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Duration</ion-label>
+        <ion-datetime displayFormat="mm:ss" [(ngModel)]="duration"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="success" (click)="save()">Save</ion-button>
+      </ion-item>
+
+
+    </ion-list>
+  </ion-content>
+</ng-container>
+
+<app-icon-select *ngIf="iconSelect" (selected)="habit.icon = $event; iconSelect = false;">
+</app-icon-select>
