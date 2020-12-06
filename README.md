@@ -1,32 +1,33 @@
-# Pocket tools
+<h1 align="center">Welcome to Pocket Tools 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+> Collections of tools to run on my android device. 
 
-## Development server
+### 🏠 [Homepage](https://github.com/cyrillbrito/pocket-tools)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install
 
-## Code scaffolding
+```sh
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Author
 
-## Build
+👤 **Cyrill Brito**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* Website: http://cyrillbrito.github.io/
+* Github: [@cyrillbrito](https://github.com/cyrillbrito)
+* LinkedIn: [@https:\/\/linkedin.com\/in\/cyrillbrito](https://linkedin.com/in/https:\/\/linkedin.com\/in\/cyrillbrito)
 
-## Running unit tests
+## 🤝 Contributing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/cyrillbrito/pocket-tools/issues). 
 
-## Running end-to-end tests
+## Show your support
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Give a ⭐️ if this project helped you!
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-
-## Run this to generate the icons
-
-cordova-res android --skip-config --copy
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
