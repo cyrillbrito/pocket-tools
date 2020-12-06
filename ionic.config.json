@@ -1,0 +1,7 @@
+{
+  "name": "pocket-tools",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
