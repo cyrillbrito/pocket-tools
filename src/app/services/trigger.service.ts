@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Chain } from '../models';
@@ -17,7 +16,6 @@ export class TriggerService {
     private platform: Platform,
     private storage: Storage,
     private router: Router,
-    private backgroundMode: BackgroundMode,
   ) { }
 
   public enable(): void {
@@ -25,8 +23,23 @@ export class TriggerService {
       return;
     }
 
-    this.backgroundMode.disableBatteryOptimizations();
-    this.backgroundMode.enable();
+
+    cordova.plugins.backgroundMode.disableBatteryOptimizations();
+    cordova.plugins.backgroundMode.overrideBackButton();
+    cordova.plugins.backgroundMode.requestForegroundPermission();
+
+    cordova.plugins.backgroundMode.isIgnoringBatteryOptimizations((isIgnoring: boolean) => {
+      if (!isIgnoring) {
+        alert('Battery Optimizations');
+      }
+    });
+
+
+    cordova.plugins.backgroundMode.enable();
+
+    cordova.plugins.backgroundMode.on('activate', () => {
+      cordova.plugins.backgroundMode.disableWebViewOptimizations();
+    });
 
     setInterval(async () => {
 

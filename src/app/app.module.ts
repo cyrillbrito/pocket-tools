@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { Media } from '@ionic-native/media/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -38,7 +37,6 @@ import { IconSelectComponent } from './icon-select/icon-select.component';
     StatusBar,
     SplashScreen,
     Media,
-    BackgroundMode,
   ],
   bootstrap: [AppComponent]
 })
